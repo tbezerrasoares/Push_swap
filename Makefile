@@ -6,7 +6,7 @@
 #    By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 14:05:29 by tbezerra          #+#    #+#              #
-#    Updated: 2024/05/27 14:06:37 by tbezerra         ###   ########.fr        #
+#    Updated: 2024/05/27 14:09:23 by tbezerra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = cc
 LIBFT = ./libft/libft.a
 CFLAGS = -Wall -Werror -Wextra
 
-SRCS = main.c get_path.c utis.c
+SRCS = main.c
 
 OBJS = ${SRCS:.c=.o}
 
