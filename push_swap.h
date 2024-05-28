@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 16:08:36 by tbezerra          #+#    #+#             */
-/*   Updated: 2024/05/27 18:11:42 by tbezerra         ###   ########.fr       */
+/*   Created: 2024/05/27 15:41:21 by tbezerra          #+#    #+#             */
+/*   Updated: 2024/05/27 19:02:36 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+#include "./libft/libft.h"
 
-t_list	*ft_lstnew(void *content)
+typedef struct s_stack
 {
-	t_list	*newele;
+    int	            valeu;
+    int	            index;
+    struct s_stack	*next;
+}	t_stack;
 
-	newele = (t_list *)ft_calloc(sizeof(*newele), 1);
-	if (!newele)
-		return (NULL);
-	newele->content = content;
-	return (newele);
-}
+#define ERR_INPUT "Error in input\n"
+
+/*Funtions*/

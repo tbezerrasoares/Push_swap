@@ -6,7 +6,7 @@
 #    By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 14:05:29 by tbezerra          #+#    #+#              #
-#    Updated: 2024/05/27 14:09:23 by tbezerra         ###   ########.fr        #
+#    Updated: 2024/05/27 15:40:57 by tbezerra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,6 @@ $(LIBFT):
 
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
-
-
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(HEADER) -c $(SRCS)
