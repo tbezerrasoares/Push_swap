@@ -6,7 +6,7 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 18:38:32 by tbezerra          #+#    #+#             */
-/*   Updated: 2024/06/05 18:49:48 by tbezerra         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:11:34 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,27 @@ void	ft_stkadd_back(t_stack **lst, t_stack *new)
 		else
 			*lst = new;
 	}
+}
+
+void	ft_stkadd_front(t_stack **lst, t_stack *new)
+{
+	if (lst)
+	{
+		if (*lst)
+			new->next = *lst;
+		*lst = new;
+	}
+}
+
+int	ft_stksize(t_stack *lst)
+{
+	int		size;
+
+	size = 0;
+	while (lst)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
 }
