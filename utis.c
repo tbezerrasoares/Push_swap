@@ -32,7 +32,7 @@ int	is_digit_stack(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (ft_isdigit(str[i]) == 0)
+		if (ft_isdigit(str[i]) == 0 && str[i] != '-')
 			return (0);
 		i++;
 	}
@@ -61,4 +61,18 @@ t_stack	*max_finder(t_stack **list)
 		temp = temp->next;
 	}
 	return (max);
+}
+
+int	is_repeadt(char *str, t_stack **list_a)
+{
+	t_stack	*temp;
+
+	temp = *list_a;
+	while (temp)
+	{
+		if (temp->value == ft_atoi(str))
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
 }

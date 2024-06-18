@@ -87,7 +87,8 @@ int main(int ac, char **av)
 	}
 	while (argv[index] != NULL)
 	{
-		if(is_digit_stack(argv[index]) == 0)
+		if(is_digit_stack(argv[index]) == 0 || is_repeadt(argv[index], list_a) 
+		== 0)
 		{
 			ft_putstr_fd(ERR_ARGUMENTS, 2);
 			free_push_swap(list_a, list_b, argv, ac);

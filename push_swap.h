@@ -14,6 +14,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <unistd.h>
+#include <limits.h>
 #include "./libft/libft.h"
 
 typedef struct s_stack
@@ -31,6 +33,7 @@ typedef struct s_stack
 #define ERR_INPUT "Error in input\n"
 #define ERR_ARGUMENTS "Error in arguments\n"
 #define ERR_STACK "Error in creat stack\n"
+#define ERR_REPEAT "Error argument repeated\n"
 
 /*Funtions Stack*/
 t_stack		*ft_stknew(int content, int index);
@@ -43,9 +46,16 @@ int			ft_stksize(t_stack *lst);
 void		free_stack(t_stack **stack);
 void		free_push_swap(t_stack **list_a, t_stack **list_b, char **argv, int ac);
 int			is_digit_stack(char *str);
+int			is_repeadt(char *str, t_stack **list_a);
 void		big_sort(t_stack **list_a, t_stack **list_b);
 int			issorte(t_stack **list_a);
 t_stack		*max_finder(t_stack **list);
+void		calc_n_median(t_stack *list_a);
+void		target_a(t_stack *list_a, t_stack *list_b);
+void		cost_a(t_stack *list_a, t_stack *list_b);
+void		cheapest(t_stack *list);
+t_stack		*cheapest_define(t_stack *list);
+void		push_preparation(t_stack **list, t_stack *stack_point, char stack_name);
 
 /*Commands*/
 void		swap_stack(t_stack **stack);
