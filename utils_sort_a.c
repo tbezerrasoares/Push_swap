@@ -6,28 +6,28 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 21:23:46 by tbezerra          #+#    #+#             */
-/*   Updated: 2024/06/18 22:59:52 by tbezerra         ###   ########.fr       */
+/*   Updated: 2024/06/19 11:02:18 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	calc_n_median(t_stack *list_a)
+void	calc_n_median(t_stack *list)
 {
 	int		i;
 	int		median;
 
 	i = 0;
-	if (!list_a)
+	if (!list)
 		return ;
-	median = ft_stksize(list_a) / 2;
-	while (list_a)
+	median = ft_stksize(list) / 2;
+	while (list)
 	{
 		if (i <= median)
-			list_a->above_median = true;
+			list->above_median = true;
 		else
-			list_a->above_median = false;
-		list_a = list_a->next;
+			list->above_median = false;
+		list = list->next;
 		i++;
 	}
 }
@@ -51,12 +51,12 @@ void	target_a(t_stack *list_a, t_stack *list_b)
 			}
 			now_stack_b = now_stack_b->next;
 		}
+		if (best == INT_MIN)
+			list_a->target = max_finder(&list_b);
+		else
+			list_a->target = target_stack;
+		list_a = list_a->next;
 	}
-	if (best == INT_MIN)
-		list_a->target = max_finder(&list_b);
-	else
-		list_a->target = target_stack;
-	list_a = list_a->next;
 }
 
 void	cost_a(t_stack *list_a, t_stack *list_b)
@@ -101,7 +101,7 @@ void	cheapest(t_stack *list)
 
 void	push_preparation(t_stack **list, t_stack *stack_point, char stack_name)
 {
-	while (list != stack_point)
+	while (*list != stack_point)
 	{
 		if (stack_name == 'a')
 		{

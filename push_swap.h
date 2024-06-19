@@ -6,7 +6,7 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:41:21 by tbezerra          #+#    #+#             */
-/*   Updated: 2024/06/12 18:53:10 by tbezerra         ###   ########.fr       */
+/*   Updated: 2024/06/19 10:36:12 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,27 @@ void		free_stack(t_stack **stack);
 void		free_push_swap(t_stack **list_a, t_stack **list_b, char **argv, int ac);
 int			is_digit_stack(char *str);
 int			is_repeadt(char *str, t_stack **list_a);
+
+
+/*Funtions Sort*/
 void		big_sort(t_stack **list_a, t_stack **list_b);
 int			issorte(t_stack **list_a);
 t_stack		*max_finder(t_stack **list);
-void		calc_n_median(t_stack *list_a);
+t_stack		*min_finder(t_stack **list);
+void		calc_n_median(t_stack *list);
 void		target_a(t_stack *list_a, t_stack *list_b);
 void		cost_a(t_stack *list_a, t_stack *list_b);
 void		cheapest(t_stack *list);
 t_stack		*cheapest_define(t_stack *list);
 void		push_preparation(t_stack **list, t_stack *stack_point, char stack_name);
+void		top_min(t_stack **list);
+void		calc_stack_a(t_stack *list_a, t_stack *list_b);
+void		goto_a_b(t_stack **list_a, t_stack **list_b);
+void		calc_stack_b(t_stack *list_a, t_stack *list_b);
+void		goto_b_a(t_stack **list_a, t_stack **list_b);
+void		sort_three(t_stack **list_a);
+void		target_b(t_stack *list_a, t_stack *list_b);
+
 
 /*Commands*/
 void		swap_stack(t_stack **stack);

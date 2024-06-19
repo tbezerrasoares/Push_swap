@@ -6,13 +6,13 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:09:13 by tbezerra          #+#    #+#             */
-/*   Updated: 2024/06/12 18:52:56 by tbezerra         ###   ########.fr       */
+/*   Updated: 2024/06/19 11:36:23 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	printList(t_stack **list_a, t_stack **list_b)
+/* void	printList(t_stack **list_a, t_stack **list_b)
 {
 	t_stack *temp = *list_a;
 	t_stack *temp2 = *list_b;
@@ -28,7 +28,7 @@ void	printList(t_stack **list_a, t_stack **list_b)
 		}
 		ft_printf("\n");
 	}
-}
+} */
 
 int	issorte(t_stack **list_a)
 {
@@ -98,7 +98,6 @@ int main(int ac, char **av)
 		ft_stkadd_back(list_a, new);
 		index++;
 	}
-	printList(list_a, list_b);
 	if (issorte(list_a) == 0)
 	{
 		if (ft_stksize(*list_a) == 2)
@@ -108,7 +107,7 @@ int main(int ac, char **av)
 		else
 			big_sort(list_a, list_b);
 	}
-	printList(list_a, list_b);
+	/*printList(list_a, list_b);*/
 	free_push_swap(list_a, list_b, argv, ac);
 	return (0);
 }

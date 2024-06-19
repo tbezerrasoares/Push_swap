@@ -6,7 +6,7 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 22:51:11 by tbezerra          #+#    #+#             */
-/*   Updated: 2024/06/18 23:17:31 by tbezerra         ###   ########.fr       */
+/*   Updated: 2024/06/19 10:22:49 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,16 @@ void	target_b(t_stack *list_a, t_stack *list_b)
 		else
 			list_b->target = target_stack;
 		list_b = list_b->next;
+	}
+}
+
+void	top_min(t_stack **list)
+{
+	while ((*list)->value != min_finder(&(*list))->value)
+	{
+		if (min_finder(&(*list))->above_median)
+			cmd_ra(list);
+		else
+			cmd_rra(list);
 	}
 }

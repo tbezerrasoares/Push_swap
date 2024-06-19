@@ -6,7 +6,7 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:15:35 by tbezerra          #+#    #+#             */
-/*   Updated: 2024/06/12 18:55:59 by tbezerra         ###   ########.fr       */
+/*   Updated: 2024/06/19 11:09:25 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,16 @@ void	big_sort(t_stack **list_a, t_stack **list_b)
 	{
 		calc_stack_a(*list_a, *list_b);
 		goto_a_b(list_a, list_b);
+		
 	}
 	sort_three(list_a);
+	while (*list_b)
+	{
+		calc_stack_b(*list_a, *list_b);
+		goto_b_a(list_a, list_b);
+	}
+	calc_n_median(*list_a);
+	top_min(list_a);
 }
 
 void	calc_stack_a(t_stack *list_a, t_stack *list_b)
@@ -45,14 +53,14 @@ void	goto_a_b(t_stack **list_a, t_stack **list_b)
 	cheapest = cheapest_define(*list_a);
 	if (cheapest->above_median && cheapest->target->above_median)
 	{
-		while (*list_a != cheapest && list_b != cheapest->target)
+		while (*list_a != cheapest && *list_b != cheapest->target)
 			cmd_rr(list_a, list_b);
 		calc_n_median(*list_a);
 		calc_n_median(*list_b);
 	}
 	else if (!(cheapest->above_median) && !(cheapest->target->above_median))
 	{
-		while (list_a != cheapest && list_b != cheapest->target)
+		while (*list_a != cheapest && *list_b != cheapest->target)
 			cmd_rrr(list_a, list_b);
 		calc_n_median(*list_a);
 		calc_n_median(*list_b);
