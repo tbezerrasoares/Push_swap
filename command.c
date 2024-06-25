@@ -6,7 +6,7 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 09:19:57 by tbezerra          #+#    #+#             */
-/*   Updated: 2024/06/12 13:00:01 by tbezerra         ###   ########.fr       */
+/*   Updated: 2024/06/19 13:47:42 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	swap_stack(t_stack **stack)
 	t_stack	*temp3;
 
 	if (*stack == NULL || (*stack)->next == NULL)
-		return;
+		return ;
 	temp = *stack;
 	temp2 = temp->next;
 	temp3 = temp2->next;
@@ -34,7 +34,7 @@ void	push_stack(t_stack **list_out, t_stack **list_in)
 	t_stack	*temp2;
 
 	if (*list_out == NULL)
-		return;
+		return ;
 	temp = *list_out;
 	temp2 = temp->next;
 	*list_out = temp2;
@@ -48,7 +48,7 @@ void	rotato_stack(t_stack **stack)
 	t_stack	*temp2;
 
 	if (*stack == NULL || (*stack)->next == NULL)
-		return;
+		return ;
 	temp = *stack;
 	temp2 = ft_stklast(*stack);
 	*stack = temp->next;
@@ -62,7 +62,7 @@ void	reverse_rotato_stack(t_stack **stack)
 	t_stack	*temp2;
 
 	if (*stack == NULL || (*stack)->next == NULL)
-		return;
+		return ;
 	temp = ft_stklast(*stack);
 	temp2 = *stack;
 	while (temp2->next != temp)

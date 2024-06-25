@@ -6,7 +6,7 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 22:51:11 by tbezerra          #+#    #+#             */
-/*   Updated: 2024/06/18 23:17:31 by tbezerra         ###   ########.fr       */
+/*   Updated: 2024/06/25 22:13:23 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_stack	*cheapest_define(t_stack *list)
 {
 	if (!list)
 		return (NULL);
-	while(list)
+	while (list)
 	{
 		if (list->cheapest == true)
 			return (list);
@@ -25,20 +25,24 @@ t_stack	*cheapest_define(t_stack *list)
 	return (NULL);
 }
 
-t_stack	*min_finder(t_stack **list)
+t_stack	*min_finder(t_stack *list)
 {
-	t_stack	*temp;
-	t_stack	*min;
+	long	min;
+	t_stack	*current;
 
-	temp = *list;
-	min = temp;
-	while (temp)
+	if (!list)
+		return (NULL);
+	min = INT_MAX;
+	while (list)
 	{
-		if (temp->value < min->value)
-			min = temp;
-		temp = temp->next;
+		if (list->value < min)
+		{
+			min = list->value;
+			current = list;
+		}
+		list = list->next;
 	}
-	return (min);
+	return (current);
 }
 
 void	target_b(t_stack *list_a, t_stack *list_b)
@@ -49,7 +53,7 @@ void	target_b(t_stack *list_a, t_stack *list_b)
 
 	while (list_b)
 	{
-		best = LONG_MAX;
+		best = INT_MAX;
 		now_stack = list_a;
 		while (now_stack)
 		{
@@ -60,10 +64,34 @@ void	target_b(t_stack *list_a, t_stack *list_b)
 			}
 			now_stack = now_stack->next;
 		}
-		if (best == LONG_MAX)
-			list_b->target = min_finder(&list_a);
+		if (best == INT_MAX)
+			list_b->target = min_finder(list_a);
 		else
 			list_b->target = target_stack;
 		list_b = list_b->next;
 	}
+}
+
+void	top_min(t_stack **list)
+{
+	while ((*list)->value != min_finder(*list)->value)
+	{
+		if (min_finder(*list)->above_median)
+			cmd_ra(list);
+		else
+			cmd_rra(list);
+	}
+}
+
+void	sort_three(t_stack **list_a)
+{
+	t_stack	*temp;
+
+	temp = max_finder(*list_a);
+	if (temp == *list_a)
+		cmd_ra(list_a);
+	else if ((*list_a)->next == temp)
+		cmd_rra(list_a);
+	if ((*list_a)->value > (*list_a)->next->value)
+		cmd_sa(list_a);
 }

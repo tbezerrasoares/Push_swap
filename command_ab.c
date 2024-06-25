@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   commad_ab.c                                        :+:      :+:    :+:   */
+/*   command_ab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:16:07 by tbezerra          #+#    #+#             */
-/*   Updated: 2024/06/12 11:16:51 by tbezerra         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:44:59 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	cmd_ss(t_stack **list_a , t_stack **list_b)
+void	cmd_ss(t_stack **list_a, t_stack **list_b)
 {
 	swap_stack(list_a);
 	swap_stack(list_b);

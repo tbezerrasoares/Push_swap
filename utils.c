@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utis.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 09:53:46 by tbezerra          #+#    #+#             */
-/*   Updated: 2024/06/12 14:29:10 by tbezerra         ###   ########.fr       */
+/*   Updated: 2024/06/20 14:26:37 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	is_digit_stack(char *str)
 	int	i;
 
 	i = 0;
+	if (ft_atoi_long(str) > 2147483647 || ft_atoi_long(str) < -2147483648)
+		return (0);
 	while (str[i] != '\0')
 	{
 		if (ft_isdigit(str[i]) == 0 && str[i] != '-')
@@ -47,20 +49,24 @@ void	free_push_swap(t_stack **list_a, t_stack **list_b, char **argv, int ac)
 		free_ft_split(argv);
 }
 
-t_stack	*max_finder(t_stack **list)
+t_stack	*max_finder(t_stack *list)
 {
-	t_stack	*temp;
-	t_stack	*max;
+	long	max;
+	t_stack	*current;
 
-	temp = *list;
-	max = temp;
-	while (temp)
+	if (!list)
+		return (NULL);
+	max = INT_MIN;
+	while (list)
 	{
-		if (temp->value > max->value)
-			max = temp;
-		temp = temp->next;
+		if (list->value > max)
+		{
+			max = list->value;
+			current = list;
+		}
+		list = list->next;
 	}
-	return (max);
+	return (current);
 }
 
 int	is_repeadt(char *str, t_stack **list_a)
