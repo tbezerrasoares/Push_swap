@@ -25,6 +25,7 @@ void	big_sort(t_stack **list_a, t_stack **list_b)
 	{
 		calc_stack_a(*list_a, *list_b);
 		goto_a_b(list_a, list_b);
+		
 	}
 	sort_three(list_a);
 	while (*list_b)
