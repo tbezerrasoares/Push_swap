@@ -6,7 +6,7 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:09:13 by tbezerra          #+#    #+#             */
-/*   Updated: 2024/06/19 15:05:50 by tbezerra         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:02:23 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,7 @@ int	main(int ac, char **av)
 	char	**argv;
 
 	if (ac < 2)
-	{
-		ft_putstr_fd(ERR_INPUT, 2);
 		return (1);
-	}
 	list_a = (t_stack **)ft_calloc(sizeof(t_stack), 1);
 	list_b = (t_stack **)ft_calloc(sizeof(t_stack), 1);
 	if ((!list_a) || (!list_b))
@@ -112,6 +109,12 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	argv = in_char(av, ac);
+	if (argv[0] == NULL)
+	{
+		free_push_swap(list_a, list_b, argv, ac);
+		ft_putstr_fd(ERR_STACK, 2);
+		return (0);
+	}
 	if (benning_stack(list_a, list_b, argv, ac) == 1)
 		return (1);
 	sorte_main(list_a, list_b);
