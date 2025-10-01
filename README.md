@@ -181,17 +181,6 @@ $ ./push_swap 4 67 3 87 23 | ./checker_linux 4 67 3 87 23
 OK
 ```
 
-## 📈 Avaliação
-
-### Critérios de avaliação da 42:
-
-| Tamanho da entrada | Operações para nota máxima |
-|-------------------|---------------------------|
-| 3 números         | ≤ 3 operações             |
-| 5 números         | ≤ 12 operações            |
-| 100 números       | ≤ 700 operações           |
-| 500 números       | ≤ 5500 operações          |
-
 ### Funcionalidades implementadas:
 - ✅ Validação de entrada (números duplicados, não-numéricos)
 - ✅ Gerenciamento de memória sem vazamentos
@@ -232,7 +221,7 @@ Para testar o programa:
 
 ## 👤 Autor
 
-**Tiago Bezerra** - [@tbezerrasoares](https://github.com/tbezerrasoares)
+**Tiberio Bezerra** - [@tbezerrasoares](https://github.com/tbezerrasoares)
 - 42 Login: `tbezerra`
 - Email: tbezerra@student.42porto.com
 
